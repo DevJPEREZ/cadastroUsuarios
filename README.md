@@ -29,8 +29,6 @@ composer install
 ```
 DB_HOST=localhost
 DB_DATABASE=bd_crmall 
-DB_USERNAME=root
-DB_PASSWORD=
 ```
 
 ## Gerar chave do projeto laravel
