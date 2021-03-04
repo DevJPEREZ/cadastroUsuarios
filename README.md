@@ -1,6 +1,6 @@
 ## Descrição
 
-Sistema de cadastro de clientes desenvolvido em **PHP** com framework **Laravel** para processo seletivo da **CRMALL**
+Sistema de cadastro de clientes desenvolvido em **PHP** com framework **Laravel**
 
 ## Pré Requisitos 
 
