@@ -81,13 +81,27 @@ class FuncionarioController extends Controller
     public function edit($id)
     {
         $funcionario = $this->funcionario->find($id);
+
+        if(!$funcionario){
+            return redirect('funcionarios')->with('warning', 'Funcionário não encontrado!');
+        }
+
         $estados = $this->estados->all();
         return view('funcionarios.editar', compact('funcionario', 'estados'));
     }
 
     public function update(Request $request, $id)
     {
-
+        
+        $funcionario = $this->funcionario->find($id);
+        
+        if(!$funcionario){
+            return json_encode([
+                'success'=> false,
+                'msg' => 'Funcionário não encontrado!',
+            ]);
+        }
+        
         $this->validate($request,[
             'cpf' => 'required|unique:funcionarios,cpf,'.$id,
             'nome' => 'required|string',
@@ -129,6 +143,13 @@ class FuncionarioController extends Controller
 
     public function destroy($id)
     {
+
+        $funcionario = $this->funcionario->find($id);
+        
+        if(!$funcionario){
+            return back()->with('warning', 'Funcionário não encontrado!');
+        }
+
         try {             
             $this->funcionario->destroy($id);
         }catch(QueryException $ex){ 

@@ -11,7 +11,11 @@
         <ul class="app-menu">
           <li><a class="app-menu__item" href="/"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Inicio</span></a></li>
           <li><a class="app-menu__item" href="/funcionarios"><i class="app-menu__icon fa fa-address-card-o"></i><span class="app-menu__label">Funcionários</span></a></li>
-          <li><a class="app-menu__item" href="/usuarios"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Usuários</span></a></li>
+          @if (session('user.tipo') == 1)
+            <li><a class="app-menu__item" href="/usuarios"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Usuários</span></a></li>
+          @else
+            <li><a class="app-menu__item" href="/usuarios/{{ session('user.id') }}/edit"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Usuários</span></a></li>
+          @endif
         </ul>
       </aside>
   </div>

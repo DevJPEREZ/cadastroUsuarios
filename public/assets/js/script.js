@@ -21,7 +21,7 @@ $("form.crud").submit(function(evt){
 		},
 		error: function(response){
 			$.each(response.responseJSON.errors, function( index, value ) {
-				swal("Atenção!", value, "warning");
+				swal("Atenção!", value, "error");
 			});
 		}
 	});
@@ -46,7 +46,7 @@ $("[name='cep']").keyup(function(){
 				}
 			},
 			error: function(response){
-				swal("Atenção!", "Erro ao buscar cep", "warning");
+				swal("Atenção!", "Erro ao buscar cep", "error");
 			}
 		});
 	}

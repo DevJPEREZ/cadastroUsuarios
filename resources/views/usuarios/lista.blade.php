@@ -71,6 +71,8 @@
         
         @if (session('success'))
             swal("Sucesso!", "", "success");
+        @elseif (session('warning'))
+            swal("Atenção!", "{{ session('warning') }}", "warning");
         @elseif (session('error'))
             swal("Atenção!", "{{ session('error') }}", "error");
         @endif
